@@ -60,7 +60,7 @@ Available authentication endpoints:
 
 Authentication errors use safe responses without Prisma details, SQL, stack traces, secrets, or password hashes. Unknown emails and incorrect passwords receive the same response. Public registration always assigns the `USER` role regardless of client-supplied role data.
 
-Role-based admin authorization is not implemented yet.
+`GET /api/admin/dashboard` requires authentication and the `ADMIN` role. Public registration always creates `USER`; bootstrap/test administrators must be created through a trusted internal Prisma workflow.
 
 ## Authenticated task API
 
@@ -78,7 +78,7 @@ List queries support `page` and `limit` (default 1 and 10, maximum limit 100), s
 
 Ownership is included directly in Prisma query predicates. Missing tasks and tasks owned by another user both return HTTP 404 so the API does not disclose cross-user record existence.
 
-Role-based admin authorization and task UI integration are not implemented yet.
+The React client integrates the authenticated task API. The ADMIN dashboard is an API-level authorization demonstration and does not add a separate admin client page.
 
 ## CORS
 

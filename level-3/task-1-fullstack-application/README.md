@@ -24,6 +24,7 @@ PostgreSQL
 - Backend-authoritative session restoration through `/api/auth/me`.
 - Protected task creation, listing, editing, and deletion.
 - Owner isolation enforced in Prisma predicates; cross-user task access returns HTTP 404.
+- ADMIN-only `/api/admin/dashboard` authorization; public registration always creates USER.
 - Server-side search, status/priority filters, allowlisted sorting, counting, and pagination.
 - Responsive task dashboard with loading, retryable error, empty, and no-match states.
 - Database-backed health check, restricted CORS, Helmet security headers, bounded JSON bodies, and graceful shutdown.
@@ -94,3 +95,7 @@ npm start
 ```
 
 See [deployment/README.md](deployment/README.md) for provider-neutral deployment preparation. Actual hosting, domains, and TLS remain external deployment responsibilities.
+
+## Role-based access
+
+`GET /api/admin/dashboard` requires a valid ADMIN JWT. A normal USER receives HTTP 403, missing or invalid authentication receives HTTP 401, and a trusted internal administrator receives HTTP 200. Public registration and client-supplied role fields cannot create an administrator.

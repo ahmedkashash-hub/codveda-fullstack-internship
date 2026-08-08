@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import corsOptions from './config/cors.js';
 import prisma from './config/prisma.js';
 import errorHandler from './middleware/errorHandler.js';
+import adminRoutes from './routes/adminRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import taskRoutes from './routes/taskRoutes.js';
 
@@ -32,6 +33,7 @@ app.get('/health', async (_request, response) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes);
 app.use('/api/tasks', taskRoutes);
 
 app.use(errorHandler);

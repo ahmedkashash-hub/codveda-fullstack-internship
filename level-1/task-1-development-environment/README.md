@@ -1,22 +1,23 @@
 # Level 1 — Task 1: Development Environment Setup
 
-This task documents the development environment prepared for the
-Codveda Full-Stack Development Internship.
+This task documents the development environment prepared for the Codveda Full-Stack Development Internship.
 
-## Installed Tools
+## Installed tools
 
-- Node.js
-- npm
+- Node.js and npm
 - Git
 - Visual Studio Code
-- PostgreSQL
+- PostgreSQL and `psql`
 - pgAdmin 4
 
-## Verification Commands
+## Verification commands
 
-`bash
+```bash
 node --version
 npm --version
 git --version
 psql --version
 code --version
+```
+
+Recorded versions are in [environment-versions.md](environment-versions.md), and `screenshorts/` contains visual setup evidence.
