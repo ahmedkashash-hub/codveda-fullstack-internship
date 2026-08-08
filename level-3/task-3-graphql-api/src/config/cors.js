@@ -11,5 +11,5 @@ const getClientOrigin = () => {
 export const createCorsOptions = () => ({
   origin: getClientOrigin(),
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 });
